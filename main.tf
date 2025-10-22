@@ -29,7 +29,14 @@ locals {
 }
 
 resource "aws_s3_bucket" "s3_tf" {
-    bucket = jibin-s3-bucket
-  #bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
+    bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
+}
+
+resource "aws_s3_bucket_public_access_block" "s3_tf_block" {
+  bucket                  = aws_s3_bucket.s3_tf.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 

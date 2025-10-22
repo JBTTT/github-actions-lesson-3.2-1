@@ -29,7 +29,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "s3_tf" {
-    bucket = "jibin-s3-bucket"
+    bucket = jibin-s3-bucket
   #bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
 }
 

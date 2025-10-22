@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 terraform {
-  required_version = ">= 1.13.4"
+  required_version = ">= 1.3.0"
 
   required_providers {
     aws = {
@@ -29,6 +29,7 @@ locals {
 }
 
 resource "aws_s3_bucket" "s3_tf" {
-  bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
+    bucket = "jibin-s3-bucket"
+  #bucket = "${local.name_prefix}-s3-tf-bkt-${local.account_id}"
 }
 
